@@ -1,0 +1,11 @@
+<form [formGroup]="languageForm">
+  <select 
+    id="languageSelect" 
+    name="language" 
+    formControlName="language"
+     (ngModelChange)="switchLanguage()">
+    <option *ngFor="let lang of availableLanguages" [value]="lang.code">
+      {{ lang.label | uppercase | translate }}
+    </option>
+  </select>
+</form>

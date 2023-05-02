@@ -1,0 +1,27 @@
+# Prisma
+/prisma/.env
+/prisma/.prisma
+!prisma/schema.prisma
+
+# TypeScript
+/dist/
+/node_modules/
+/tsconfig.json
+*.log
+*.tsbuildinfo
+
+# Jest
+/coverage/
+/jest.config.js
+
+# Node.js
+.DS_Store
+.env
+.env.test
+*.pid
+*.log
+*.seed
+*.sqlite
+
+# VS Code
+.vscode/

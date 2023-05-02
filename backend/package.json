@@ -1,0 +1,39 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"dotenv -e .env npx prisma db push --preview-feature && ts-node repository/seed.ts && nodemon -q dist/index.js\"",
+    "test": "dotenv -e .env.test npx prisma db push --preview-feature && ts-node repository/seed.ts && jest --coverage -i",
+    "migrate:postgre": "dotenv -e .env.test -- npx prisma migrate deploy"
+  },
+  "prisma": {
+    "seed": "ts-node repository/seed.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "prisma": "^4.13.0"
+  },
+  "devDependencies": {
+    "@prisma/client": "^4.13.0",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.16.3",
+    "@types/supertest": "^2.0.12",
+    "concurrently": "^8.0.1",
+    "dotenv-cli": "^7.1.0",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}

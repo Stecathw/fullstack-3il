@@ -1,0 +1,22 @@
+{
+  "TITLE": "Mes Contacts",
+  "LIST": "Liste",
+  "ADD": "Ajouter",
+  "FRENCH": "Français",
+  "ENGLISH": "Anglais",
+  "CREDIT": "Crédit",
+  "TABLE": {
+    "TITLE": "Liste des contacts :",
+    "ID": "Identifiant unique",
+    "FIRSTNAME": "Prénom",
+    "LASTNAME": "Nom",
+    "CIVILITY": "Civilité",
+    "ACTIONS": "Actions"
+  },
+  "ITEMS": "Items par page",
+  "PAGINATOR": {
+    "ITEMS": "Items par page",
+    "NEXT": "Suivant",
+    "PREVIOUS": "Précédent"
+  }
+}

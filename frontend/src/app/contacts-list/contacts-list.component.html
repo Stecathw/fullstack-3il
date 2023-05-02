@@ -1,0 +1,62 @@
+<mat-card>
+
+  <mat-card-header>
+    <h2>{{ 'table.title' | uppercase | translate }}</h2>
+  </mat-card-header>
+
+  <mat-card-content>
+    <table 
+      mat-table 
+      [dataSource]="dataSource" 
+      (matSortChange)="sortData($event)" 
+      matSort matSortActive="id" 
+      matSortDirection="asc">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'table.id' | uppercase | translate }}</th>
+        <td mat-cell *matCellDef="let contact">{{ contact.id }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'table.firstname' | uppercase | translate }}</th>
+        <td mat-cell *matCellDef="let contact">{{ contact.firstname }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'table.lastname' | uppercase | translate }}</th>
+        <td mat-cell *matCellDef="let contact">{{ contact.lastname }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="genre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'table.civility' | uppercase | translate }}</th>
+        <td mat-cell *matCellDef="let contact">{{ contact.Genre.libelle }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>{{ 'table.actions' | uppercase | translate }}</th>
+        <td mat-cell *matCellDef="let contact">
+          <button mat-icon-button color="primary" (click)="edit(contact.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="delete(contact.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns">
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+  
+  <mat-card-footer>
+    <mat-paginator 
+      [length]="totalItems" 
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizes"
+      showFirstLastButton
+    >
+    </mat-paginator>
+  </mat-card-footer>
+  
+
+</mat-card>
