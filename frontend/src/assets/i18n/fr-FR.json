@@ -11,7 +11,8 @@
     "FIRSTNAME": "Prénom",
     "LASTNAME": "Nom",
     "CIVILITY": "Civilité",
-    "ACTIONS": "Actions"
+    "ACTIONS": "Actions",
+    "NODATA": "Aucunes données à afficher."
   },
   "ITEMS": "Items par page",
   "PAGINATOR": {

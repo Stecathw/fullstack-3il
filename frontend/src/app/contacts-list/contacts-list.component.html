@@ -42,6 +42,14 @@
           </button>
         </td>
       </ng-container>
+
+      <ng-template matNoDataRow>       
+        <div
+          *ngIf="!dataSource.data.length" 
+          class="no-data">
+          {{ 'table.noData' | uppercase | translate }}
+        </div>
+      </ng-template>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns">
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
