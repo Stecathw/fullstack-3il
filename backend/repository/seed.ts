@@ -1,50 +1,41 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, TicketStatus } from '@prisma/client';
 const prisma = new PrismaClient()
 
 async function main() {
 
-  await prisma.contact.deleteMany();
-  await prisma.genre.deleteMany();
-  
-  // Create genres
-  const male = await prisma.genre.create({
-    data: {
-      id: 1,
-      libelle: 'Male',
-    },
-  });
-  const female = await prisma.genre.create({
-    data: {
-      id: 2,
-      libelle: 'Female',
-    },
-  });
-  const others = await prisma.genre.create({
-    data: {
-      id: 3,
-      libelle: 'Others',
-    },
-  });  
-  // Create users
-  await prisma.contact.createMany({
+  await prisma.ticket.deleteMany();
+
+  await prisma.ticket.createMany({
     data: [
       {
         id: 1,
-        firstname: 'John',
-        lastname: 'Repool',
-        genreId: male.id,
+        title: 'Example Ticket',
+        description: 'This is an example ticket',
+        status: TicketStatus.A_FAIRE,
       },
       {
         id: 2,
-        firstname: 'Jane',
-        lastname: 'Doe',
-        genreId: female.id,
+        title: 'Example Ticket 2',
+        description: 'En cours',
+        status: TicketStatus.EN_COURS,
       },
       {
         id: 3,
-        firstname: 'Mooul',
-        lastname: 'Pool',
-        genreId: others.id,
+        title: 'Example Ticket 3',
+        description: '',
+        status: TicketStatus.A_FAIRE,
+      },
+      {
+        id: 4,
+        title: 'Example Ticket 4',
+        description: 'Hello world',
+        status: TicketStatus.TERMINE,
+      },
+      {
+        id: 5,
+        title: 'Example Ticket 5',
+        description: 'Finished !',
+        status: TicketStatus.TERMINE,
       },
     ],
   });

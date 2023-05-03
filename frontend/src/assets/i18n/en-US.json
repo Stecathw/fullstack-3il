@@ -1,19 +1,18 @@
 {
-  "TITLE": "My Contacts",
+  "TITLE": "My tickets",
   "LIST": "List",
   "ADD": "Add",
   "FRENCH": "French",
   "ENGLISH": "English",
   "CREDIT": "Credit",
   "TABLE": {
-    "TITLE": "List of contacts :",
+    "TABLE_TITLE": "List of tickets :",
+    "TITLE": "Title",
     "ID": "Unique Identifier",
-    "FIRSTNAME": "Firstname",
-    "LASTNAME": "Lastname",
-    "CIVILITY": "Genre",
+    "DESCRIPTION": "Description",
+    "STATUS": "Status",
     "ACTIONS": "Actions",
     "NODATA": "No data to display."
-
   },
   "ITEMS": "Items per page",
   "PAGINATOR": {

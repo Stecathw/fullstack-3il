@@ -10,7 +10,7 @@
     "test": "dotenv -e .env.test npx prisma db push --preview-feature && ts-node repository/seed.ts && jest --coverage -i",
     "migrate:postgre": "dotenv -e .env.test -- npx prisma migrate deploy",
     "lint": "eslint --ext .ts ./**/*.ts",
-    "format": "eslint --fix --ext .ts ./**/*.ts"    
+    "format": "eslint --fix --ext .ts ./**/*.ts"
   },
   "prisma": {
     "seed": "ts-node repository/seed.ts"
@@ -29,6 +29,7 @@
     "prisma": "^4.13.0"
   },
   "devDependencies": {
+    "@jest/globals": "^29.5.0",
     "@prisma/client": "^4.13.0",
     "@types/express": "^4.17.17",
     "@types/node": "^18.16.3",

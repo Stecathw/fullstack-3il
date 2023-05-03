@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ContactsListComponent } from './contacts-list/contacts-list.component';
-import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { TicketsListComponent } from './ticket-list/tickets-list.component';
+import { TicketDetailsComponent } from './contact-details/ticket-details.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -38,8 +39,8 @@ export function createHttpLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ContactsListComponent,
-    ContactDetailsComponent,
+    TicketsListComponent,
+    TicketDetailsComponent,
     NavbarComponent,
     LangSelectionComponent,
     FooterComponent
@@ -71,7 +72,8 @@ export function createHttpLoader(http: HttpClient) {
     MatFormFieldModule,
     MatSelectModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
   providers: [
     {

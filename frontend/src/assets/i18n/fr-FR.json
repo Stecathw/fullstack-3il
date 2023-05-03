@@ -1,16 +1,16 @@
 {
-  "TITLE": "Mes Contacts",
+  "TITLE": "Mes tickets",
   "LIST": "Liste",
   "ADD": "Ajouter",
   "FRENCH": "Français",
   "ENGLISH": "Anglais",
   "CREDIT": "Crédit",
   "TABLE": {
-    "TITLE": "Liste des contacts :",
+    "TABLE_TITLE": "Liste des tickets :",
+    "TITLE": "Titre",
     "ID": "Identifiant unique",
-    "FIRSTNAME": "Prénom",
-    "LASTNAME": "Nom",
-    "CIVILITY": "Civilité",
+    "DESCRIPTION": "Description",
+    "STATUS": "Statut",
     "ACTIONS": "Actions",
     "NODATA": "Aucunes données à afficher."
   },

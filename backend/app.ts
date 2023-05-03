@@ -1,5 +1,5 @@
 import express, { Application, Request, Response } from 'express';
-import { contacts } from './routes/contactsRoutes';
+import { tickets } from './routes/ticketsRoutes';
 
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -24,10 +24,10 @@ app.use(express.json());
 app.set('view engine', 'ejs');  
 
 // Routes for the main RESTApi
-app.use('/api/contacts', contacts);
+app.use('/api/tickets', tickets);
 
 app.get('/', async (req: Request, res: Response) => {
-  res.status(200).send('Welcome on my  RestAPi, all routes are found under <base_url>/api/<your_api_route>/');
+  res.status(200).send('Welcome on my  RestAPi, all routes are found under <base_url>/api/tickets/');
 });
 
 export {app};

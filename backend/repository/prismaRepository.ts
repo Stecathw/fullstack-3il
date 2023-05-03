@@ -1,61 +1,54 @@
 import { PrismaClient } from "@prisma/client";
-import { Contact } from "../types/contact";
+import { Ticket, TicketStatus } from "../types/ticket";
 
 const prisma = new PrismaClient();
 
 export const prismaRepository = {
-  async getAllContacts(): Promise<Contact[]> {
-    return await prisma.contact.findMany({
-      include: { Genre: true },
-    });
+
+  async getAllTickets(): Promise<Ticket[]> {
+    return await prisma.ticket.findMany({});
   },
 
-  async getContactById(id: number): Promise<Contact | null> {
-    return await prisma.contact.findUnique({
+  async getTicketById(id: number): Promise<Ticket | null> {
+    return await prisma.ticket.findUnique({
       where: { id },
-      include: { Genre: true },
     });
   },
 
-  async createContact(data: {
-    firstname: string;
-    lastname: string;
-    genreId: number;
-  }): Promise<Contact> {
-    return await prisma.contact.create({
+  async createTicket(data: {
+    title: string;
+    description: string;
+  }): Promise<Ticket> {
+    return await prisma.ticket.create({
       data: {
-        firstname: data.firstname,
-        lastname: data.lastname,
-        genreId: data.genreId,
+        title: data.title,
+        description: data.description,
       },
-      include: { Genre: true },
     });
   },
 
-  async updateContact(
+  async updateTicket(
     id: number,
-    data: { firstname: string; lastname: string; genreId: number }
-  ): Promise<Contact | null> {
-    return await prisma.contact.update({
+    data: { title: string; description: string; status: TicketStatus }
+  ): Promise<Ticket | null> {
+    return await prisma.ticket.update({
       where: { id },
       data: {
-        firstname: data.firstname,
-        lastname: data.lastname,
-        genreId: data.genreId,
+        title: data.title,
+        description: data.description,
+        status: data.status,
       },
-      include: { Genre: true },
     });
   },
 
-  async deleteContact(id: number): Promise<Contact | null> {
-    return await prisma.contact.delete({
+  async deleteTicket(id: number): Promise<Ticket | null> {
+    return await prisma.ticket.delete({
       where: { id },
     });
   },
 
   async clearDatabase(): Promise<void> {
-    await prisma.contact.deleteMany();
-    await prisma.genre.deleteMany();
+    await prisma.ticket.deleteMany();
   },
 
   async closeDatabase(): Promise<void> {
