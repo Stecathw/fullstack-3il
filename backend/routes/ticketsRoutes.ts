@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import ticketsServices = require('../services/ticketsServices')
+import { checkDeleteStatus } from '../middlewares/checkDeleteStatus';
 
 export const tickets = Router();
 
@@ -75,7 +76,7 @@ tickets.put('/:id', async (req : Request, res : Response) => {
 });
 
 // Define an API route to delete a ticket by ID
-tickets.delete('/:id', async (req : Request, res : Response) => {
+tickets.delete('/:id', checkDeleteStatus, async (req : Request, res : Response) => {
   try {
     const ticketId = parseInt(req.params.id);
     await ticketsServices.deleteOne(ticketId);
