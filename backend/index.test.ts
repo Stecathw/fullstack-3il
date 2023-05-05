@@ -65,15 +65,11 @@ describe('Test the root path', () => {
     expect(res.body.status).toEqual(updatedTicket.status);
   });
 
-  // test('should return a 400 (because of middleware) status code if there is an error updating a contact', async () => {
-  //   const updatedContact = {
-  //     title: 'John',
-  //     lastname: 'Doe',
-  //   };
-  //   const res = await request(server).put('/api/contacts/"1"').send(updatedContact);
-  //   expect(res.status).toEqual(400);
-  //   expect(res.text).toEqual('ID parameter must be a number');
-  // });
+  test('should return a 400 (because of middleware) status code if there is a ticket with status TERMINE to be deleted', async () => {
+    const res = await request(server).delete(`/api/tickets/1`);
+    expect(res.status).toEqual(400);
+    expect(res.body.message).toEqual('Cannot delete ticket with status TERMINÉ');
+  });
 
   test('Should delete ticket', async () => {
     const id = 2;
